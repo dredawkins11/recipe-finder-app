@@ -27,13 +27,18 @@ function fetchRecipe(ingredient){
         return data;
     })
     .then(function(data) {
-        recipeTitle = data.hits[1].recipe.label;
 
-            newRecipe  = 
+        for (var i = 0; i < 5; i++) {
+
+            var newRecipe = document.createElement('div');
+
+            newRecipe.innerHTML  = 
             `<div>
-            <h2>${recipeTitle}</h2>
-            <img src="${data.hits[1].recipe.image}"/>
+            <h2>${data.hits[i].recipe.label}</h2>
+            <a href="${data.hits[i].recipe.url}"><img src="${data.hits[1].recipe.image}" /></a>
+            <img src="${data.hits[i].recipe.image}"/>
             </div>`;
-            result.innerHTML = newRecipe;
+            result.appendChild(newRecipe);
+        };
     })
 };
