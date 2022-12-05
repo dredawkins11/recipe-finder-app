@@ -1,22 +1,57 @@
 var btn = document.getElementById("#btn");
 var recipeSearch = document.getElementById("#search");
 var result = document.getElementById("#result-div");
+var ingredientList = document.getElementById("#ingredient-div");
 
 // API key and id (should encrypt if possible)
 
 var key = "a48dd9a48442bf50ea647bcc228e83ad";
 var id = "1683bca1";
 
+var ingredientArr = [];
+
 
 // click event to make API call
+
+// (commented out while i work on this repurposing this feature)
+
+// btn.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     var ingredient = recipeSearch.value;
+//     console.log(ingredient);
+
+//     fetchRecipe(ingredient);
+// });
+
+
+
+// function to accumulate user's desired ingredients to be stored in an array and used to narrow down recipe results
 
 btn.addEventListener("click", function(event) {
     event.preventDefault();
     var ingredient = recipeSearch.value;
     console.log(ingredient);
+
+    //creat ingredient buttons
+
+    var ingrediBtn = document.createElement("button");
+    ingrediBtn.textContent = ingredient;
+    ingredientList.appendChild(ingrediBtn);
+    ingrediBtn.addEventListener("click", function(event) {
+        var ingr = event.target;
+        ingr.remove();
+    });
     
-    fetchRecipe(ingredient);
-})
+
+    //push ingredients into array
+
+    ingredientArr.push(ingredient);
+    console.log(ingredientArr);
+    // localStorage.setItem('ingredients', JSON.stringify(ingredientArr));
+    recipeSearch.value = "";
+
+
+});
 
 // API call
 
@@ -48,5 +83,5 @@ function fetchRecipe(ingredient){
             </div>`;
             result.appendChild(newRecipe);
         };
-    })
+    });
 };
