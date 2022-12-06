@@ -1,14 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Finder</title>
+    <meta charset="utf-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherish&family=Kaushan+Script&family=Londrina+Sketch&family=Love+Light&family=Pinyon+Script&family=Princess+Sofia&family=Zilla+Slab+Highlight:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
 <body>
-    
-    <script src="./assets/script.js"></script>
-</body>
+    <header>
+      <h1>RECIPE FINDER</h1>
+      </header>
+    <body>
+        <main>
+
+        
+        <section id="ingredient-section">
+          <div class="pure-menu custom-restricted-width">
+            
+            <p>Ingredients </p><input type="text">
+            <input id= "submit" type="submit">
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            <p><input type="checkbox"></p>
+            
+            <p><input type="submit"></p>
+        </section>
+      <section class="results-section">
+        <input type="text" name="recipe-search" id="recipe-search-input" placeholder="Search...">
+        <button id="recipe-search-button">Search for recipes</button>
+        <p>Results:</p>
+        <div id="recipe-search-results"></div>
+      </section>
+    </main>
+      <script src="./assets/script.js"></script>
+  </body>
 </html>
