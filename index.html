@@ -4,7 +4,13 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
-
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
 <body>
     <header>
       <h1>Recipe Finder</h1>
@@ -30,8 +36,7 @@
             <p><input type="submit"></p>
         </section>
       <section class="results-section">
-        <input type="text" name="recipe-search" id="recipe-search-input" placeholder="Search...">
-        <button id="recipe-search-button">Search for recipes</button>
+        <input type="text" name="recipe-search" id="recipe-search-input">
         <p>Results:</p>
         <div id="recipe-search-results"></div>
       </section>
