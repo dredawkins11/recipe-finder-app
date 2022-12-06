@@ -12,7 +12,7 @@ var id = "1683bca1";
 var ingredientArr = [];
 
 
-// click event to make API call
+
 
 
 // function to accumulate user's desired ingredients to be stored in an array and used to narrow down recipe results
@@ -95,5 +95,7 @@ function fetchRecipe(){
     });
 };
 
+
+// Button to make API call
 
 submitBtn.addEventListener("click", fetchRecipe);
