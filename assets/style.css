@@ -10,7 +10,11 @@ body, html {
     padding: 0;
     width: 100vw;
     height: 100vh;
+<<<<<<< HEAD
     background-color:rgb(202, 216, 202);
+=======
+    overflow-x: hidden;
+>>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
 }
 
 
@@ -19,6 +23,7 @@ main {
     display: flex;
     justify-content: space-around;
 }
+<<<<<<< HEAD
 #submit{
     font-family: ;
 }
@@ -38,3 +43,31 @@ main {
     padding-bottom:0.3em;
     margin-right:0.2em;
 }
+=======
+
+.results-section {
+    width: 40%;
+    background-color: lightgray;
+    padding: 20px;
+    height: 70vh;
+    
+}
+
+#recipe-search-results {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.recipe-item {
+    display: flex;
+    
+}
+
+.recipe-item img {
+    height: 100px;
+}
+>>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
