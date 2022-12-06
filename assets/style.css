@@ -3,6 +3,7 @@ body, html {
     padding: 0;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -11,4 +12,30 @@ header {
 main {
     display: flex;
     justify-content: space-around;
+}
+
+.results-section {
+    width: 40%;
+    background-color: lightgray;
+    padding: 20px;
+    height: 70vh;
+    
+}
+
+#recipe-search-results {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.recipe-item {
+    display: flex;
+    
+}
+
+.recipe-item img {
+    height: 100px;
 }
