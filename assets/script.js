@@ -1,7 +1,7 @@
 var btn = document.getElementById("#btn");
 var recipeSearch = document.getElementById("#search");
 var result = document.getElementById("#recipe-search-results");
-var ingredientList = document.getElementById("#ingredient-section");
+var ingredientList = document.getElementById("#ingredient-list");
 var submitBtn = document.getElementById("#recipe-search-button")
 
 // API key and id (should encrypt if possible)
@@ -24,25 +24,33 @@ btn.addEventListener("click", function(event) {
 
     //create ingredient buttons
 
-    var ingrediBtn = document.createElement("button");
-    ingrediBtn.textContent = ingredient;
-    ingredientList.appendChild(ingrediBtn);
+    // CHANGE TO CHECKBOXES
+
+    var ingredientLi = document.createElement("li");
+    ingredientLi.textContent = ingredient;
+    ingredientList.appendChild(ingredientLi);
+    var checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    ingredientLi.appendChild(checkBox);
+
 
     // remove buttons on click
 
-    ingrediBtn.addEventListener("click", function(event) {
-        var ingr = event.target;
+    // TO BE REMOVED
 
-        // remove ingredients from array
+    // ingrediBtn.addEventListener("click", function(event) {
+    //     var ingr = event.target;
 
-        ingredientArr = ingredientArr.filter(function (buttonItem) {
+    //     // remove ingredients from array
 
-            return buttonItem !== ingr.textContent;
-        });
+    //     ingredientArr = ingredientArr.filter(function (buttonItem) {
 
-        ingr.remove();
+    //         return buttonItem !== ingr.textContent;
+    //     });
+
+    //     ingr.remove();
         
-    });
+    // });
     
     //push ingredients into array
 
