@@ -10,11 +10,8 @@ body, html {
     padding: 0;
     width: 100vw;
     height: 100vh;
-<<<<<<< HEAD
     background-color:rgb(202, 216, 202);
-=======
     overflow-x: hidden;
->>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
 }
 
 
@@ -23,7 +20,7 @@ main {
     display: flex;
     justify-content: space-around;
 }
-<<<<<<< HEAD
+
 #submit{
     font-family: ;
 }
@@ -43,7 +40,6 @@ main {
     padding-bottom:0.3em;
     margin-right:0.2em;
 }
-=======
 
 .results-section {
     width: 40%;
@@ -70,4 +66,4 @@ main {
 .recipe-item img {
     height: 100px;
 }
->>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
+
