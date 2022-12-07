@@ -1,8 +1,8 @@
 var btn = document.getElementById("#btn");
 var recipeSearch = document.getElementById("#search");
-var result = document.getElementById("#result-div");
-var ingredientList = document.getElementById("#ingredient-div");
-var submitBtn = document.getElementById("#submit-button")
+var result = document.getElementById("#recipe-search-results");
+var ingredientList = document.getElementById("#ingredient-section");
+var submitBtn = document.getElementById("#recipe-search-button")
 
 // API key and id (should encrypt if possible)
 
