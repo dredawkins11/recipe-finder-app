@@ -1,8 +1,8 @@
-var btn = document.getElementById("#btn");
-var recipeSearch = document.getElementById("#search");
-var result = document.getElementById("#result-div");
-var ingredientList = document.getElementById("#ingredient-div");
-var submitBtn = document.getElementById("#submit-button")
+var submitIngredientBtn = document.getElementById("submit-ingredient");
+var searchIngredientInput = document.getElementById("search-ingredient");
+var recipeResultsElement = document.getElementById("recipe-search-results");
+var ingredientList = document.getElementById("ingredients-list");
+var recipeSearchBtn = document.getElementById("recipe-search-button")
 
 // API key and id (should encrypt if possible)
 
@@ -17,9 +17,9 @@ var ingredientArr = [];
 
 // function to accumulate user's desired ingredients to be stored in an array and used to narrow down recipe results
 
-btn.addEventListener("click", function(event) {
+submitIngredientBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    var ingredient = recipeSearch.value;
+    var ingredient = searchIngredientInput.value;
     console.log(ingredient);
 
     //create ingredient buttons
@@ -49,7 +49,7 @@ btn.addEventListener("click", function(event) {
     ingredientArr.push(ingredient);
     console.log(ingredientArr);
     
-    recipeSearch.value = "";
+    searchIngredientInput.value = "";
 
 });
 
@@ -73,7 +73,6 @@ function fetchRecipe(){
         return data;
     })
     .then(function(data) {
-
         //for loop grabs 5 recipes to append on the page
         //can change to any other number depending on what we decide on
 
@@ -90,7 +89,7 @@ function fetchRecipe(){
             <a href="${data.hits[i].recipe.url}">
             <img src="${data.hits[i].recipe.image}" /></a>
             </div>`;
-            result.appendChild(newRecipe);
+            recipeResultsElement.appendChild(newRecipe);
         };
     });
 };
@@ -98,4 +97,4 @@ function fetchRecipe(){
 
 // Button to make API call
 
-submitBtn.addEventListener("click", fetchRecipe);
+recipeSearchBtn.addEventListener("click", fetchRecipe);
