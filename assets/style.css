@@ -22,7 +22,7 @@ main {
 }
 
 #submit{
-    font-family: ;
+    
 }
 .custom-restricted-width {
     /* To limit the menu width to the content of the menu: */
@@ -67,3 +67,7 @@ main {
     height: 100px;
 }
 
+#ingredients-list {
+    display: flex;
+    flex-direction: column;
+}
