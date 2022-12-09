@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherish&family=Euphoria+Script&family=Kaushan+Script&family=Love+Light&family=Pinyon+Script&family=Princess+Sofia&family=Zilla+Slab+Highlight:wght@400;700&display=swap');
-
-
-header {
-    
+h1{
+    font-family:kaushan script
+}
+h5{
+    font-family: Arial, Helvetica, sans-serif;
 }
  
+    #instructions{
+    font-family: pinyon Script;
+    font-size: large;
+    font-weight: 510;
+    text-align: center;
+ }
+
 body, html {
     margin: 0;
     padding: 0;
@@ -18,12 +25,11 @@ main {
     display: flex;
     justify-content: space-around;
 }
-#submit{
-    font-family: ;
-}
-.custom-restricted-width {
+
+.pure-form {
     /* To limit the menu width to the content of the menu: */
     display: inline-block;
+    max-width: 50%;
     font-weight: 800;
     font-size:xx-large;
     background-color: whitesmoke;
@@ -34,13 +40,14 @@ main {
     padding-left:0.2em;
     padding-bottom:0.3em;
     margin-right:0.2em;
+    margin-left:.5em
 }
 
 .results-section {
     width: 40%;
     background-color: lightgray;
     padding: 20px;
-    height: 70vh; 
+    height: 70vh;
 }
 
 #recipe-search-results {
@@ -53,7 +60,8 @@ main {
 }
 
 .recipe-item {
-    display: flex; 
+    display: flex;
+    
 }
 
 .recipe-item img {
