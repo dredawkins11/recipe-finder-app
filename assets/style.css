@@ -17,16 +17,22 @@ body, html {
     padding: 0;
     width: 100vw;
     height: 100vh;
+<<<<<<< HEAD
     background-color:rgb(202, 216, 202);
+=======
     overflow-x: hidden;
+>>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
 }
 
 main {
     display: flex;
     justify-content: space-around;
 }
-
-.pure-form {
+<<<<<<< HEAD
+#submit{
+    font-family: ;
+}
+.custom-restricted-width {
     /* To limit the menu width to the content of the menu: */
     display: inline-block;
     max-width: 50%;
@@ -42,6 +48,7 @@ main {
     margin-right:0.2em;
     margin-left:.5em
 }
+=======
 
 .results-section {
     width: 40%;
@@ -66,4 +73,10 @@ main {
 
 .recipe-item img {
     height: 100px;
+}
+>>>>>>> 1ff948bdd282b0854fcbdbda6bc41bf3e9f845c6
+
+#ingredients-list {
+    display: flex;
+    flex-direction: column;
 }
