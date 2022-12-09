@@ -31,14 +31,35 @@ btn.addEventListener("click", function(event) {
     ingredientList.appendChild(ingredientLi);
     var checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.setAttribute("checked", "checked");
     ingredientLi.appendChild(checkBox);
+    checkBox.value = ingredientLi;
 
 
-    // remove buttons on click
 
-    // TO BE REMOVED
 
-    // ingrediBtn.addEventListener("click", function(event) {
+    function handleArray (event) {
+        // event.preventDefault();
+
+        var ingr = event.target;
+
+    if (checkBox.checked) {
+        ingredientArr.push(ingredient);
+    } else {
+        
+        // remove ingredients from array
+
+        ingredientArr = ingredientArr.filter(function (ingredientLi) {
+
+            return ingredientLi !== ingr.value;
+        });
+
+        ingr.remove();
+    };
+    
+};
+
+    // checkBox.addEventListener("click", function(event) {
     //     var ingr = event.target;
 
     //     // remove ingredients from array
@@ -56,6 +77,7 @@ btn.addEventListener("click", function(event) {
 
     ingredientArr.push(ingredient);
     console.log(ingredientArr);
+    handleArray();
     
     recipeSearch.value = "";
 
