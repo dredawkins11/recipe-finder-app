@@ -32,6 +32,7 @@ main {
 #submit{
     font-family: ;
 }
+
 .custom-restricted-width {
     /* To limit the menu width to the content of the menu: */
     display: inline-block;
@@ -51,7 +52,7 @@ main {
 =======
 
 .results-section {
-    width: 40%;
+    width: 70%;
     background-color: lightgray;
     padding: 20px;
     height: 70vh;
@@ -66,9 +67,8 @@ main {
     overflow-x: hidden;
 }
 
-.recipe-item {
+.recipe-search-result {
     display: flex;
-    
 }
 
 .recipe-item img {
