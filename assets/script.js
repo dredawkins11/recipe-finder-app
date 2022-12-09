@@ -119,19 +119,24 @@ function storeIngredients() {
 }
 
 // API call to search for recipes that include only active ingredients
-async function fetchRecipe() {
+function fetchRecipe() {
     // Verify there are ingredients selected
     if (activeIngredients.length == 0)
         return window.alert("Select some ingredients to search with first!");
 
     // Call the Edamam API with the query set to the active ingredients
-    let url = `https://api.edamam.com/search?app_id=${SEARCH_API_ID}&app_key=${SEARCH_API_KEY}&q=${activeIngredients}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
+    let api = `https://api.edamam.com/search?app_id=${SEARCH_API_ID}&app_key=${SEARCH_API_KEY}&q=${activeIngredients}`;
+    fetch(api)
+    .then(function(response){
+        let data = response.json();
+        console.log(data);
+        return data;
+    }).then(function(data) {
+        // Set the recipes currently loaded
+        displayedRecipes = data.hits;
+        renderRecipes(data);
+    })
 
-    displayedRecipes = data.hits;
-    renderRecipes(data);
 }
 
 // Dynamically generated HTML that uses specific information from the API data, in this case the title, url and image.
