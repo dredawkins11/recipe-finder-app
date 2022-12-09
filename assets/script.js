@@ -77,13 +77,14 @@ ingredientsList.addEventListener("click", function (event) {
 });
 
 recipeResultsElement.addEventListener("click", async function (event) {
-    if (!event.target.classList.contains("nutrition-details"))
+    if (!event.target.classList.contains("show-nutrition"))
         return event.stopPropagation();
     const resultIndex = Array.from(recipeResultsElement.children).indexOf(
-        event.target.parentElement.parentElement
+        event.target.parentElement.parentElement.parentElement
     );
     console.log(resultIndex);
     const data = await fetchNutrition(resultIndex);
+    renderNutrition(data, resultIndex);
 });
 
 // Creates and appends an ingredient item to ingredient list
@@ -127,16 +128,16 @@ function fetchRecipe() {
     // Call the Edamam API with the query set to the active ingredients
     let api = `https://api.edamam.com/search?app_id=${SEARCH_API_ID}&app_key=${SEARCH_API_KEY}&q=${activeIngredients}`;
     fetch(api)
-    .then(function(response){
-        let data = response.json();
-        console.log(data);
-        return data;
-    }).then(function(data) {
-        // Set the recipes currently loaded
-        displayedRecipes = data.hits;
-        renderRecipes(data);
-    })
-
+        .then(function (response) {
+            let data = response.json();
+            console.log(data);
+            return data;
+        })
+        .then(function (data) {
+            // Set the recipes currently loaded
+            displayedRecipes = data.hits;
+            renderRecipes(data);
+        });
 }
 
 // Dynamically generated HTML that uses specific information from the API data, in this case the title, url and image.
@@ -154,12 +155,13 @@ function renderRecipes(data) {
         var newRecipe = document.createElement("div");
         var detailsSection = document.createElement("section");
         var nutritionDetails = document.createElement("div");
+        var showNutritionEl = document.createElement("a");
         var title = document.createElement("h2");
         var link = document.createElement("a");
         var image = document.createElement("img");
 
         title.innerText = recipe.label;
-        nutritionDetails.innerText = "Show Nutrition Details";
+        showNutritionEl.innerText = "Show Nutrition Details V";
         image.setAttribute("src", recipe.image);
         link.setAttribute("href", recipe.url);
         link.appendChild(image);
@@ -167,7 +169,9 @@ function renderRecipes(data) {
         detailsSection.appendChild(title);
         detailsSection.appendChild(nutritionDetails);
         nutritionDetails.classList.add("nutrition-details");
+        showNutritionEl.classList.add("show-nutrition");
 
+        nutritionDetails.appendChild(showNutritionEl);
         newRecipe.appendChild(link);
         newRecipe.appendChild(detailsSection);
         newRecipe.classList.add("recipe-search-result");
@@ -176,9 +180,8 @@ function renderRecipes(data) {
     }
 }
 
-
 async function fetchNutrition(recipeIndex) {
-    const recipe = displayedRecipes[recipeIndex].recipe
+    const recipe = displayedRecipes[recipeIndex].recipe;
     console.log(recipe);
     const res = await fetch(
         `https://api.edamam.com/api/nutrition-details?app_id=${NUTRITION_API_ID}&app_key=${NUTRITION_API_KEY}`,
@@ -191,21 +194,56 @@ async function fetchNutrition(recipeIndex) {
                 yield: recipe.yield.toString(),
                 time: recipe.totalTime.toString(),
                 img: recipe.image,
-                prep: "string"
+                prep: "string",
             }),
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            method: "POST"
+            method: "POST",
         }
     );
-    const data = await res.json()
+    const data = await res.json();
     console.log(data);
+    return {
+        Calories: data.calories,
+        Fat: data.totalNutrients.FAT,
+        Cholestrol: data.totalNutrients.CHOLE,
+        Sodium: data.totalNutrients.NA,
+        Carbs: data.totalNutrients["CHOCDF.net"],
+        Sugar: data.totalNutrients.SUGAR,
+        Protein: data.totalNutrients.PROCNT,
+        yield: data.yield,
+    };
 }
 
-function renderNutrition(data) {
+function renderNutrition(data, recipeIndex) {
+    const nutritionElement = recipeResultsElement.childNodes
+        .item(recipeIndex)
+        .childNodes.item(1)
+        .childNodes.item(1);
+    const showNutritionEl = recipeResultsElement.childNodes
+    .item(recipeIndex)
+    .childNodes.item(1)
+    .childNodes.item(1).firstChild;
+    console.log(data);
 
+    const nutritionInfoEl = document.createElement("div");
+    Object.keys(data).forEach((nutrient) => {
+        const nutrientEl = document.createElement("p");
+        if (nutrient === "yield") {
+            nutrientEl.innerText = `(Yields ${data.yield} servings)`
+        } else if (nutrient === "Calories") {
+            nutrientEl.innerText = `${nutrient}: ${Math.round(data[nutrient]/data.yield)}`;
+        } else {
+            nutrientEl.innerText = `${nutrient}: ${Math.round(
+                data[nutrient].quantity/data.yield
+            )}${data[nutrient].unit}`;
+        }
+        nutritionInfoEl.appendChild(nutrientEl);
+    });
+    nutritionElement.appendChild(nutritionInfoEl);
+    showNutritionEl.remove()
 }
 
 // Button to make API call
