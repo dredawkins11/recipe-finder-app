@@ -3,8 +3,9 @@ var searchIngredientInput = document.getElementById("search-ingredient");
 var recipeResultsElement = document.getElementById("recipe-search-results");
 var ingredientsList = document.getElementById("ingredients-list");
 var recipeSearchBtn = document.getElementById("recipe-search-button");
+var main = document.getElementById("#main-section")
 
-var faves = document.getElementById("faves");
+var faves = document.getElementById("#faves");
 
 var faveArr = [];
 
@@ -20,6 +21,9 @@ var activeIngredients = [];
 
 // Array containing data about the currently displayed recipes
 var displayedRecipes = [];
+
+// faves.addEventListener("click", faveModal);
+
 
 // Get locally stored ingredients and add the to allIngredients, if present
 const storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
@@ -166,6 +170,7 @@ function renderRecipes(data) {
             };
         
             faveArr.push(rec);
+            localStorage.setItem("storedFaves", JSON.stringify(faveArr));
         
         console.log(faveArr);
         };
@@ -210,6 +215,27 @@ function renderRecipes(data) {
     // console.log(faveArr);
 // }
 
+faves.onclick = function() {
+
+    var storedFaves = JSON.parse(localStorage.getItem("storedFaves"));
+    var modal = document.createElement("div");
+    main.appendChild(modal);
+
+    for (var i = 0; i < storedFaves.length; i++) {
+
+        
+        var faveRec = document.createElement('div');
+
+        faveRec.innerHTML  = 
+        `<div>
+        <h2>${storedFaves[i].title}</h2>
+        <a href="${storedFaves[i].url}">
+        <img src="${storedFaves[i].img}" /></a>
+        </div>`;
+        modal.appendChild(faveRec);
+    }
+}
+
 
 async function fetchNutrition(recipeIndex) {
     const recipe = displayedRecipes[recipeIndex].recipe
@@ -243,4 +269,5 @@ function renderNutrition(data) {
 }
 
 // Button to make API call
+
 recipeSearchBtn.addEventListener("click", fetchRecipe);
