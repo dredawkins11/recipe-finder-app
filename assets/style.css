@@ -77,6 +77,8 @@ a:focus {
 }
 
 .sidebar {
+    display:flex;
+    flex-direction: column;
     background-color:rgb(202, 216, 202);
     max-width: 30%;   
     padding-left: .5em;      
@@ -118,6 +120,8 @@ a:focus {
 }
 
 .results-section {
+    display: flex;
+    flex-direction: column;
     margin-left: 3em;
     width: 70%;
     background-color: whitesmoke; 
