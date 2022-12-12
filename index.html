@@ -11,17 +11,14 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
-  
-  
+<body class="body">
     <header class="top">
       <h1>RECIPE FINDER</h1>
-         <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="pure-button" href="http://purecss.io">Pure</a>
-            </li>
-          </ul>
+        <nav class="nav">
+          <div>
+            <a class="faveRecipes">Favorite Recipes</a>
+              <button class=displayFaves>  </button>
+          </div>  
         </nav>
     </header>    
     <div id="layout" class="pure-g"></div>
@@ -31,8 +28,7 @@
           <h1 class="brand-title">Ingredients</h1>
             <h2 class="brand-tagline">Enter ingredients already in your kitchen to find delicious recipes! </h2>
         </div>
-          <input id="search-ingredient" type="text" class="pure-input-2-3" 
-            placeholder="Pure-input-2-3"/>
+          <input id="search-ingredient" type="text" class="pure-input-2-3"/>
             <input id= "submit-ingredient" type="submit"/>
             <div id="ingredients-list"></div>
           <p><button id="submit" type="submit" class="button pure-button-active-xsmall">Submit List
@@ -52,28 +48,9 @@
                 <!-- A single recipe -->
                 <div class="recipe">
                   <header class="recipe-header">
-                    <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" />
-                      <h2 class="recipe-title">Recipe #1</h2>
-                        </header>                   
-                          <div class="recipe-search-result">
-                        <a href="#">
-                        <img src="#" alt="chicken esuvio"></a>                  
-                        <h2>Chicken Vesuvio</h2>
-                      <div class="nutrition-details">
-                    </div>
-                  <div class="recipe-description">
-                    <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                  </div> 
-                </div> 
-                <!-- A single recipe -->
-                <div class="recipe">
-                  <header class="recipe-header">
-                    <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" />
-                      <h2 class="recipe-title">Recipe #2</h2>
-                        </header>                   
-                          <div class="recipe-search-result">
+                    <h2 class="recipe-title">Recipe #1</h2>
+                      </header>           
+                        <div class="recipe-search-result">
                         <a href="#">
                         <img src="#" alt="chicken esuvio"></a>                  
                         <h2>Chicken Vesuvio</h2>
@@ -98,5 +75,6 @@
       </div>
     </footer>
   <script src="./assets/script.js"></script>
+  
 </body>
 </html>
