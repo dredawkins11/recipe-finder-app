@@ -22,7 +22,6 @@ var activeIngredients = [];
 // Array containing data about the currently displayed recipes
 var displayedRecipes = [];
 
-// faves.addEventListener("click", faveModal);
 
 
 // Get locally stored ingredients and add the to allIngredients, if present
@@ -160,6 +159,10 @@ function renderRecipes(data) {
         var link = document.createElement("a");
         var image = document.createElement("img");
 
+
+
+        // adds a faves button to results which stores the title, picture and link to local storage
+
         var faveBtn = document.createElement("button");
         newRecipe.appendChild(faveBtn);
         faveBtn.onclick = function() {
@@ -169,11 +172,13 @@ function renderRecipes(data) {
                 img: recipe.image,
             };
         
-            faveArr.push(rec);
-            localStorage.setItem("storedFaves", JSON.stringify(faveArr));
+        faveArr.push(rec);
+        localStorage.setItem("storedFaves", JSON.stringify(faveArr));
         
         console.log(faveArr);
         };
+
+        // end of favebutton code
 
         title.innerText = recipe.label;
         nutritionDetails.innerText = "Show Nutrition Details";
@@ -193,27 +198,8 @@ function renderRecipes(data) {
     }
 }
 
-// Stores a recipe in local storage
-// var storeRecipe = function(recipe) {
-
-
-    
-// for (i = 0; i < length; i++) {
-
-    
-
-    // JSON.parse(localStorage.getItem("faveRecipes"));
-
-    // var recipeObj = {
-    //     initial: initialInput,
-    //     score: secondsLeft
-    // }
-
-    // JSON.parse(recipe);
-    // faveArr.push(recipe);
-    // localStorage.setItem("faveRecipes", JSON.stringify(recipe));
-    // console.log(faveArr);
-// }
+// Click favourites link in nav to bring up stored favourites
+// Needs a css class to turn it into an actual modal
 
 faves.onclick = function() {
 
@@ -223,7 +209,6 @@ faves.onclick = function() {
 
     for (var i = 0; i < storedFaves.length; i++) {
 
-        
         var faveRec = document.createElement('div');
 
         faveRec.innerHTML  = 
@@ -232,6 +217,7 @@ faves.onclick = function() {
         <a href="${storedFaves[i].url}">
         <img src="${storedFaves[i].img}" /></a>
         </div>`;
+
         modal.appendChild(faveRec);
     }
 }
