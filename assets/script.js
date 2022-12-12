@@ -4,6 +4,10 @@ var recipeResultsElement = document.getElementById("recipe-search-results");
 var ingredientsList = document.getElementById("ingredients-list");
 var recipeSearchBtn = document.getElementById("recipe-search-button");
 
+var faves = document.getElementById("faves");
+
+var faveArr = [];
+
 // API keys and ids (should encrypt if possible)
 var SEARCH_API_KEY = "a48dd9a48442bf50ea647bcc228e83ad";
 var SEARCH_API_ID = "1683bca1";
@@ -106,12 +110,6 @@ function renderIngredient(text) {
     ingredientsList.appendChild(ingredientContainer);
 }
 
-// Stores a recipe in local storage
-function storeRecipe(recipe) {
-    const currentFavorites = JSON.parse(localStorage.getItem("faveRecipes"));
-    currentFavorites.push(recipe);
-    localStorage.setItem("FaveRecipes", JSON.stringify(currentFavorites));
-}
 
 // Stores ingredients in local storage
 function storeIngredients() {
@@ -158,6 +156,20 @@ function renderRecipes(data) {
         var link = document.createElement("a");
         var image = document.createElement("img");
 
+        var faveBtn = document.createElement("button");
+        newRecipe.appendChild(faveBtn);
+        faveBtn.onclick = function() {
+            var rec = {
+                title: recipe.label,
+                url: recipe.url,
+                img: recipe.image,
+            };
+        
+            faveArr.push(rec);
+        
+        console.log(faveArr);
+        };
+
         title.innerText = recipe.label;
         nutritionDetails.innerText = "Show Nutrition Details";
         image.setAttribute("src", recipe.image);
@@ -175,6 +187,28 @@ function renderRecipes(data) {
         recipeResultsElement.appendChild(newRecipe);
     }
 }
+
+// Stores a recipe in local storage
+// var storeRecipe = function(recipe) {
+
+
+    
+// for (i = 0; i < length; i++) {
+
+    
+
+    // JSON.parse(localStorage.getItem("faveRecipes"));
+
+    // var recipeObj = {
+    //     initial: initialInput,
+    //     score: secondsLeft
+    // }
+
+    // JSON.parse(recipe);
+    // faveArr.push(recipe);
+    // localStorage.setItem("faveRecipes", JSON.stringify(recipe));
+    // console.log(faveArr);
+// }
 
 
 async function fetchNutrition(recipeIndex) {
