@@ -34,7 +34,8 @@ submitIngredientBtn.addEventListener("click", function (event) {
     // Trim user input and check for validity
     var ingredientText = searchIngredientInput.value.trim().toLowerCase();
     if (!ingredientText || allIngredients.includes(ingredientText)) {
-        window.alert("Invalid ingredient!");
+        // window.alert("Invalid ingredient!");
+        // Handle bad input
         return;
     }
 
@@ -55,9 +56,9 @@ ingredientsList.addEventListener("click", function (event) {
     // Case for handling clicking of the 'remove' button
     if (event.target.tagName === "BUTTON") {
         event.target.parentElement.remove();
-        allIngredients = allIngredients.filter((e) => e != ingredientText);
+        allIngredients = allIngredients.filter((e) => e != ingredientText.toLowerCase());
         activeIngredients = activeIngredients.filter(
-            (e) => e != ingredientText
+            (e) => e != ingredientText.toLowerCase
         );
         storeIngredients();
     }
@@ -117,13 +118,17 @@ function storeRecipe(recipe) {
 // Stores ingredients in local storage
 function storeIngredients() {
     localStorage.setItem("ingredients", JSON.stringify(allIngredients));
+    console.log(allIngredients);
 }
 
 // API call to search for recipes that include only active ingredients
 function fetchRecipe() {
     // Verify there are ingredients selected
-    if (activeIngredients.length == 0)
-        return window.alert("Select some ingredients to search with first!");
+    if (activeIngredients.length == 0) {
+        // window.alert("Select some ingredients to search with first!");
+        // Handle bad input
+        return
+    }
 
     // Call the Edamam API with the query set to the active ingredients
     let api = `https://api.edamam.com/search?app_id=${SEARCH_API_ID}&app_key=${SEARCH_API_KEY}&q=${activeIngredients}`;
