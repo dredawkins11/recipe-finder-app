@@ -145,6 +145,32 @@ footer {
     }
 }
 
+@media screen and (max-width: 35.5em) {
+    body {
+        overflow-y: scroll;
+    }
+
+    nav {
+        height: 10vh;
+    }
+
+    .results-section {
+    }
+
+    #ingredient-section {
+        height: auto;
+    }
+
+    .nutrition-details div p {
+        flex: 40% 1;
+        font-weight: bold;
+    }
+
+    footer {
+        height: 5vh;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 10px;
   }
