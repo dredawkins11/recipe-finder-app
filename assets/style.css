@@ -145,6 +145,28 @@ footer {
     }
 }
 
+@media screen and (min-width: 48em) {
+    body {
+        overflow-y: scroll;
+    }
+
+    nav {
+        height: 10vh;
+    }
+
+    .results-section {
+        
+    }
+
+    #ingredient-section {
+        height: auto;
+    }
+
+    footer {
+        height: 5vh;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 10px;
   }
