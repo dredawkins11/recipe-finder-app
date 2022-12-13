@@ -20,3 +20,31 @@ It is done when the user can scroll through recipes and select favorites to save
 
 
 Recipe FInder was created by Anna, Dre, James and Brigitte in December 2022. 
+Technologies used & Breakdown of tasks and roles​
+
+​
+
+APIs Used:​
+
+Edamam Nutrition API https://developer.edamam.com/edamam-docs-nutrition-api ​
+
+Edamam Recipe API https://developer.edamam.com/edamam-recipe-api ​
+
+PureCSS.io​
+​
+
+Bridget – HTML, READme & Presentation, Wireframe​
+
+Anna - CSS, HTML, Presentation​
+
+James - JavaScript, HTML​
+
+Dre - CSS, JavaScript, HTML,​
+
+Developer Issues
+
+Determining how to split up the project​
+
+Figuring how to connect the ingredients with the checkboxes​
+
+Learning new CSS frameworks from Tailwind, to Pure, Bulma, and back to Pure.  We were able to find a layout we liked but had responsiveness issues​
