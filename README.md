@@ -1,3 +1,12 @@
+Deployed​
+
+https://dredawkins11.github.io/recipe-finder-app/​
+
+Repo​
+
+https://github.com/dredawkins11/recipe-finder-app​
+
+
 
 Recipe Finder
 
