@@ -20,3 +20,6 @@ It is done when the user can scroll through recipes and select favorites to save
 
 
 Recipe FInder was created by Anna, Dre, James and Brigitte in December 2022. 
+
+https://dredawkins11.github.io/recipe-finder-app/
+https://github.com/dredawkins11/recipe-finder-app
